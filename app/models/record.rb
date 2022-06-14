@@ -1,20 +1,22 @@
 require 'Time'
-# class Record < ApplicationRecord
 class Record
-    # include Irecord 
+# class Record < ApplicationRecord
+    # implements Irecord
+    @@number_of_records = 0
     def initialize(note="")
-        @_id = 1 #primary key
-        @user_id = 1 #increments by one based on the highest user id
-        @project_id = 1 #same with above but for project id 
+        @_id = @@number_of_records #primary key
+        @user_id = 0 #user object
+        @project_id = 0 #project object
         @total_time = 0
         @note = note
         @time_started = Time.now
-        @time_stopped = "00:00"
+        @time_stopped = Time.now
         @date_created = Time.now
+        @@number_of_records += 1 #updates record constant so that user id is always unique
     end 
 
     def _id
-        puts @id
+        puts @_id
     end
 
     def _note 
@@ -24,9 +26,21 @@ class Record
     def write_note(note)
         @note = note 
     end
+    
+    def _time_stopped 
+        puts @time_stopped
+        return @time_stopped 
+    end 
+
+    #records when the stop button is pressed
+    def stop_time #za warudo 
+        @time_stopped = Time.now #time is frozen 
+    end #tokio tomei 
 end
 
-record = Record.new('Hello World')
-record._id
-record._note
+# record = Record.new('Hello World')
+# record2 = Record.new("second record")
+# record._id
+# record2._id
+# record._note
 

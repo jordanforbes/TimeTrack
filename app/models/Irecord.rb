@@ -1,5 +1,3 @@
 module Record
-    def getRecordId
-        raise "Not implemented"
-    end 
+    @@number_of_records
 end
