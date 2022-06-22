@@ -1,14 +1,27 @@
 #todo: turn into a class
 #todo: write documentation for each method
 
-class TimeCalculator
 
+
+class TimeCalculator
+  #todo modularize thses variables and build a data structure that holds them all and creates them. 
   @@total_minutes = 0
   @@hour_times = ["1:00","3:29","0:49","1:19","1:05","1:10","1:13","3:06"]
   @@minute_times = []
   
 
   def initialize()
+  end
+
+  #add new time to the end of the list
+  def _add(hhmm)
+    @@hour_times.append(hhmm)
+    return this
+  end
+
+  #remove the most recent addition
+  def _remove_last
+    @@hour_times.pop()
   end
 
   #takes in hours as a string and converts it into minutes as an integer
@@ -24,6 +37,7 @@ class TimeCalculator
   end
     
 
+  #converts number of minutes to a string representation in HH:MM format
   def minutes_to_hours(minutes)
      hr = (minutes)/60
      min = (minutes)%60

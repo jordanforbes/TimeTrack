@@ -12,8 +12,6 @@
 
 ActiveRecord::Schema[7.0].define(version: 2022_06_15_151717) do
   create_table "records", force: :cascade do |t|
-    t.string "note"
-    t.time "total_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
