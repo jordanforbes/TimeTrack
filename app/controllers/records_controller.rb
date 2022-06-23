@@ -21,8 +21,9 @@ class RecordsController < ApplicationController
 
   # POST /records or /records.json
   def create
-    @record = Record.new(record_params)
-
+    #@record = Record.new(record_params)
+    #
+    @record = Record.new()
     respond_to do |format|
       if @record.save
         format.html { redirect_to record_url(@record), notice: "Record was successfully created." }
@@ -46,6 +47,7 @@ class RecordsController < ApplicationController
       end
     end
   end
+
 
   # DELETE /records/1 or /records/1.json
   def destroy
