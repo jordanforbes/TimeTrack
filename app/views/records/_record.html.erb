@@ -1,6 +1,15 @@
-<div id="<%= dom_id record %>">
-  <p>
-    <strong>Time Started</strong>
-    <%= record.created_at  %>
-  </p>
+<div id="<%= dom_id record %>" class="container">
+  <div class="row">
+    <div class="col-sm">
+      <strong>Started</strong>
+      <%= record.created_at  %>
+    </div>
+    <div class="col-sm">
+      <strong>Stopped</strong>
+      <%= record.updated_at %>
+    </div>
+    <div class="col-sm">
+      <%= button_to "Delete", record, method: :delete %>
+    </div>
+  </div>
 </div>

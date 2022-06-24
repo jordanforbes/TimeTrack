@@ -2,14 +2,12 @@
 
 <h1>Records</h1>
 
-<div id="records">
+<div id="records" class = "container-fluid">
   <% @records.each do |record| %>
     <%= render record %>
-    <p>
-      <%= link_to "Show this record", record %>
-    </p>
   <% end %>
-</div>
-<%= render "form", record: Record.new %>
+  <br>
+  <%= button_to "Start +", Record, method: :new, class:'btn btn-success' %>
 
+</div>
 

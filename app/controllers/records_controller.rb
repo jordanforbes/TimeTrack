@@ -26,8 +26,8 @@ class RecordsController < ApplicationController
     @record = Record.new()
     respond_to do |format|
       if @record.save
-        format.html { redirect_to record_url(@record), notice: "Record was successfully created." }
-        format.json { render :show, status: :created, location: @record }
+        format.html { redirect_to records_url, notice: "Record was successfully created." }
+        format.json { render :index, status: :created, location: @record }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @record.errors, status: :unprocessable_entity }
@@ -39,7 +39,7 @@ class RecordsController < ApplicationController
   def update
     respond_to do |format|
       if @record.update(record_params)
-        format.html { redirect_to record_url(@record), notice: "Record was successfully updated." }
+        format.html { redirect_to records_url, notice: "Record was successfully updated." }
         format.json { render :show, status: :ok, location: @record }
       else
         format.html { render :edit, status: :unprocessable_entity }
