@@ -1,15 +1,15 @@
-<div id="<%= dom_id record %>" class="container">
-  <div class="row">
-    <div class="col-sm">
-      <strong>Started</strong>
-      <%= record.created_at  %>
-    </div>
-    <div class="col-sm">
-      <strong>Stopped</strong>
-      <%= record.updated_at %>
-    </div>
-    <div class="col-sm">
-      <%= button_to "Delete", record, method: :delete %>
-    </div>
-  </div>
-</div>
+<tr id="<%= dom_id record %>">
+  <th scope="col">
+      <%= button_to "Stop", record, method: :stop(record), class:"btn btn-primary"%>
+  </th>
+  <th scope="col"><%=record.id %></th>
+  <th scope="col">
+      <%= record.created_at.strftime('%-I:%M %p')  %>
+  </th>
+  <th scope="col">
+      <%= record.updated_at.strftime('%-I:%M %p') %>
+  </th>
+  <th scope="col">
+      <%= button_to "x", record, method: :delete, class:"btn-danger btn" %>
+  </th>
+</tr>

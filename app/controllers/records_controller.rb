@@ -21,7 +21,7 @@ class RecordsController < ApplicationController
 
   # POST /records or /records.json
   def create
-    #@record = Record.new(record_params)
+#@record = Record.new(record_params)
     #
     @record = Record.new()
     respond_to do |format|
@@ -48,6 +48,9 @@ class RecordsController < ApplicationController
     end
   end
 
+  def stop(rec)
+      rec.update(:updated_at = DateTime.now())
+  end 
 
   # DELETE /records/1 or /records/1.json
   def destroy

@@ -2,12 +2,19 @@
 
 <h1>Records</h1>
 
-<div id="records" class = "container-fluid">
-  <% @records.each do |record| %>
-    <%= render record %>
-  <% end %>
-  <br>
-  <%= button_to "Start +", Record, method: :new, class:'btn btn-success' %>
+<div id="records" class = "container">
+    <div class="col-md-5">
+  <table class="table">
+      <thead class="thead-dark">
+          <th scope="col">
+            <%= button_to "Start +", Record, method: :new, class:'btn btn-success' %>
+        </th>
+      </thead>
+          <% @records.each do |record| %>
+              <%= render record %>
+          <% end %>
+  </table>
 
+    </div>
 </div>
 
