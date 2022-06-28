@@ -1,6 +1,6 @@
 <tr id="<%= dom_id record %>">
   <th scope="col">
-      <%= button_to "Stop", record, method: :stop(record), class:"btn btn-primary"%>
+      <%= button_to "Stop", record, method: :patch, class:"btn btn-primary"%>
   </th>
   <th scope="col"><%=record.id %></th>
   <th scope="col">

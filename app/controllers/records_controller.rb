@@ -48,9 +48,10 @@ class RecordsController < ApplicationController
     end
   end
 
-  def stop(rec)
-      rec.update(:updated_at = DateTime.now())
-  end 
+ # def stop
+     # time = DateTime.now()
+     # @record.update(:updated_at  => time)
+ # end 
 
   # DELETE /records/1 or /records/1.json
   def destroy
