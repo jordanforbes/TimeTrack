@@ -4,6 +4,7 @@ class RecordsController < ApplicationController
   # GET /records or /records.json
   def index
     @records = Record.all
+    puts "$$$$$ index debug $$$$$"
   end
 
   # GET /records/1 or /records/1.json
@@ -13,6 +14,7 @@ class RecordsController < ApplicationController
   # GET /records/new
   def new
     @record = Record.new
+    puts "$*********NEW DEBUG*****"
   end
 
   # GET /records/1/edit
@@ -37,6 +39,7 @@ class RecordsController < ApplicationController
 
   # PATCH/PUT /records/1 or /records/1.json
   def update
+     puts "$$$ $$$$ $$$$ update method debug %%%" 
     respond_to do |format|
       if @record.update(record_params)
         format.html { redirect_to records_url, notice: "Record was successfully updated." }
@@ -48,10 +51,12 @@ class RecordsController < ApplicationController
     end
   end
 
- # def stop
+  def stop
+      
+      puts "#############Stop Method  Debug" 
      # time = DateTime.now()
      # @record.update(:updated_at  => time)
- # end 
+  end 
 
   # DELETE /records/1 or /records/1.json
   def destroy
@@ -71,6 +76,8 @@ class RecordsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def record_params
-      params.require(:record).permit(:note, :total_time)
+      puts "%%%%342@#$#@ PARAMS: #{params}"
+
+      params.require(:record).permit(:id,:status)
     end
 end

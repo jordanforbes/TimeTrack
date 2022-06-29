@@ -1,13 +1,17 @@
 <tr id="<%= dom_id record %>">
   <th scope="col">
-      <%= button_to "Stop", record, method: :patch, class:"btn btn-primary"%>
+      <%= button_to "Stop", record_path(record.id),
+        params:{record:{id: record.id, status:true}}, 
+        method: :patch, class:"btn btn-primary"%>
+      <%= button_to "r", record_path(record.id),
+        params:{record:{id: record.id, status:false}}, 
+        method: :patch, class:"btn"%>
   </th>
-  <th scope="col"><%=record.id %></th>
+  <th scope="col"><%=record.status %></th>
+ 
   <th scope="col">
-      <%= record.created_at.strftime('%-I:%M %p')  %>
-  </th>
-  <th scope="col">
-      <%= record.updated_at.strftime('%-I:%M %p') %>
+      <p>Start: <%= record.created_at.strftime('%-I:%M %p') %></p>
+      <p>End: <%= record.updated_at.strftime('%-I:%M %p') %></p>
   </th>
   <th scope="col">
       <%= button_to "x", record, method: :delete, class:"btn-danger btn" %>

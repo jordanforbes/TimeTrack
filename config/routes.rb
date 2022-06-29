@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
 
-  resources :user 
-  resources :record 
   
   root "records#index"
+  post "records/:id" => "records#update#id"
+
 end
