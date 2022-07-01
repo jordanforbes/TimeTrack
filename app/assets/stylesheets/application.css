@@ -13,3 +13,14 @@
  *= require_tree .
  *= require_self
  */
+.isrunning-true{
+    color:green;
+}
+.isrunning-false{
+    color:red;
+}
+
+.recordlist{
+    /* border:1px black dotted; */
+    height: 100;
+}

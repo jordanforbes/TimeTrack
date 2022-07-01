@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :projects
   resources :records
   resources :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -7,7 +8,7 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   
-  root "records#index"
+  root "projects#index"
   post "records/:id" => "records#update#id"
 
 end

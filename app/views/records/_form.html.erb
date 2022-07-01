@@ -11,8 +11,11 @@
     </div>
   <% end %>
 
-
   <div>
-    <%= form.submit %>
+    <%= form.label :note, style: "display: block" %>
+    <%= form.text_field :note %>
+  </div>
+  <div>
+    <%= button_to "submit" %>
   </div>
 <% end %>

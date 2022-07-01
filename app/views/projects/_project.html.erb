@@ -1,0 +1,19 @@
+<div class ="col-md-4" id="<%= dom_id project %>">
+  <div class="row">
+    <p>
+      <strong>Title:</strong>
+      <%= project.title %>
+    </p>
+  </div>
+  <div class="row">
+      <strong>Description:</strong>
+      <%= project.description %>
+  </div>
+  <div class="row">
+  <table class="table">
+  <% @records.each do |record| %>
+    <%= render record %>
+  <% end %>
+  </table>
+  </div>
+</div>

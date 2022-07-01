@@ -1,19 +1,33 @@
 <tr id="<%= dom_id record %>">
-  <th scope="col">
+  <td scope="col">
+      <div class="row">
+        <%= record.created_at.in_time_zone("America/New_York").strftime("%-m/%-d/%Y")%>
+      </div>
+      <div class="row">
+      <% if record.is_running == true%>
       <%= button_to "Stop", record_path(record.id),
-        params:{record:{id: record.id, status:true}}, 
-        method: :patch, class:"btn btn-primary"%>
-      <%= button_to "r", record_path(record.id),
-        params:{record:{id: record.id, status:false}}, 
-        method: :patch, class:"btn"%>
-  </th>
-  <th scope="col"><%=record.status %></th>
+        params:{record:{id: record.id, is_running:false}}, 
+        method: :patch, class:"btn btn-danger"%>
+      <% else %>
+          <span class="isrunning-false">
+          <%= record.updated_at.in_time_zone("America/New_York").strftime("%-m/%-d/%Y")%>
+          </span>
+      <% end %>
+      </div>
+  </td>
+  <td scope="col">
+  <%= record.note %>
+  </td>
  
-  <th scope="col">
-      <p>Start: <%= record.created_at.strftime('%-I:%M %p') %></p>
-      <p>End: <%= record.updated_at.strftime('%-I:%M %p') %></p>
-  </th>
-  <th scope="col">
-      <%= button_to "x", record, method: :delete, class:"btn-danger btn" %>
-  </th>
+  <td scope="col">
+      <p>Start: <%= record.created_at.in_time_zone("America/New_York").strftime('%-I:%M %p') %></p>
+      <p>End:
+    <% if record.is_running == false %>
+      <span class="isrunning-false"> <%= record.updated_at.in_time_zone("America/New_York").strftime('%-I:%M %p') %></span></p>
+    <% end %>
+
+  </td>
+  <td scope="col">
+      <%= button_to "x", record, method: :delete, class:"btn-secondqry btn" %>
+  </td>
 </tr>

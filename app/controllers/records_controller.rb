@@ -3,8 +3,9 @@ class RecordsController < ApplicationController
 
   # GET /records or /records.json
   def index
-    @records = Record.all
+    @records = Record.all.order('id DESC')
     puts "$$$$$ index debug $$$$$"
+    @record = Record.new
   end
 
   # GET /records/1 or /records/1.json
@@ -23,8 +24,7 @@ class RecordsController < ApplicationController
 
   # POST /records or /records.json
   def create
-#@record = Record.new(record_params)
-    #
+
     @record = Record.new()
     respond_to do |format|
       if @record.save
@@ -51,13 +51,6 @@ class RecordsController < ApplicationController
     end
   end
 
-  def stop
-      
-      puts "#############Stop Method  Debug" 
-     # time = DateTime.now()
-     # @record.update(:updated_at  => time)
-  end 
-
   # DELETE /records/1 or /records/1.json
   def destroy
     @record.destroy
@@ -78,6 +71,6 @@ class RecordsController < ApplicationController
     def record_params
       puts "%%%%342@#$#@ PARAMS: #{params}"
 
-      params.require(:record).permit(:id,:status)
+      params.require(:record).permit(:id,:is_running)
     end
 end

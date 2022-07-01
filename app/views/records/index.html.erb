@@ -5,15 +5,16 @@
 <div id="records" class = "container">
     <div class="col-md-5">
   <table class="table">
-      <thead class="thead-dark">
-          <th scope="col">
-           
-            <%= button_to "Start +", Record, method: :new, class:'btn btn-success' %>
+      <thead class="thead-dark ">
+        <th scope="col">
+        <%= render "form", record: @record %>
         </th>
       </thead>
+      <tbody class="container recordlist overflow-auto">
           <% @records.each do |record| %>
               <%= render record %>
           <% end %>
+      </tbody>
   </table>
 
     </div>
