@@ -1,27 +1,35 @@
 <tr id="<%= dom_id record %>">
   <td scope="col">
       <div class="row">
+      <%# date started %>
         <%= record.created_at.in_time_zone("America/New_York").strftime("%-m/%-d/%Y")%>
       </div>
       <div class="row">
-      <% if record.is_running == true%>
+      <% if record.is_running == true %>
+      <%# stop button %>
       <%= button_to "Stop", record_path(record.id),
         params:{record:{id: record.id, is_running:false}}, 
         method: :patch, class:"btn btn-danger"%>
       <% else %>
           <span class="isrunning-false">
+          <%# date ended %>
           <%= record.updated_at.in_time_zone("America/New_York").strftime("%-m/%-d/%Y")%>
           </span>
       <% end %>
       </div>
   </td>
   <td scope="col">
+  <%# record description %>
   <%= record.note %>
+ 
+ 
   </td>
  
   <td scope="col">
+  <%# start time %>
       <p>Start: <%= record.created_at.in_time_zone("America/New_York").strftime('%-I:%M %p') %></p>
       <p>End:
+  <%# end time %>
     <% if record.is_running == false %>
       <span class="isrunning-false"> <%= record.updated_at.in_time_zone("America/New_York").strftime('%-I:%M %p') %></span></p>
     <% end %>
