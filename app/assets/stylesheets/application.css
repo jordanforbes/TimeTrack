@@ -24,3 +24,16 @@
     /* border:1px black dotted; */
     height: 100;
 }
+
+#projects{
+    display:block;
+}
+
+.project_header{
+    height:100px;
+    width:200px;
+}
+
+.border-project{
+    border: 1px black dotted;
+}
